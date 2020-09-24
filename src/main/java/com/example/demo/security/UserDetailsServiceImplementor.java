@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import static java.util.Collections.emptyList;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-    private UserRepository applicationUserRepository;
+public class UserDetailsServiceImplementor implements UserDetailsService {
+    private final UserRepository applicationUserRepository;
 
-    public UserDetailsServiceImpl(UserRepository applicationUserRepository) {
+    public UserDetailsServiceImplementor(UserRepository applicationUserRepository) {
         this.applicationUserRepository = applicationUserRepository;
     }
 
@@ -23,6 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (applicationUser == null) {
             throw new UsernameNotFoundException(username);
         }
-        return new User(applicationUser.getUsername(), applicationUser.getPassword(), emptyList());
+        return new org.springframework.security.core.userdetails.User(applicationUser.getUsername(), applicationUser.getPassword(), emptyList());
     }
 }
