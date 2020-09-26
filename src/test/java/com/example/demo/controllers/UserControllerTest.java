@@ -16,6 +16,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class UserControllerTest {
+    public static final String USER_NAME = "test";
     private UserController userController;
 
     private final UserRepository userRepo = mock(UserRepository.class);
@@ -36,7 +37,7 @@ public class UserControllerTest {
     public void createUserHappyPath() {
         when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
         CreateUserRequest r = new CreateUserRequest();
-        r.setUsername("test");
+        r.setUsername(USER_NAME);
         r.setPassword("testPassword");
         r.setConfirmPassword("testPassword");
         final ResponseEntity<User> response = userController.createUser(r);
@@ -45,7 +46,7 @@ public class UserControllerTest {
         User u = response.getBody();
         assertNotNull(u);
         assertEquals(0, u.getId());
-        assertEquals("test", u.getUsername());
+        assertEquals(USER_NAME, u.getUsername());
         assertEquals("thisIsHashed", u.getPassword());
     }
 
@@ -53,7 +54,7 @@ public class UserControllerTest {
     public void findById() {
         when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
         CreateUserRequest r = new CreateUserRequest();
-        r.setUsername("test");
+        r.setUsername(USER_NAME);
         r.setPassword("testPassword");
         r.setConfirmPassword("testPassword");
         final ResponseEntity<User> response = userController.createUser(r);
@@ -65,11 +66,27 @@ public class UserControllerTest {
         User u = userResponseEntity.getBody();
         assertNotNull(u);
         assertEquals(0, u.getId());
-        assertEquals("test", u.getUsername());
+        assertEquals(USER_NAME, u.getUsername());
         assertEquals("thisIsHashed", u.getPassword());
     }
 
-    @org.junit.jupiter.api.Test
-    void findByUserName() {
+    @Test
+    public void findByUserName() {
+        when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
+        CreateUserRequest r = new CreateUserRequest();
+        r.setUsername(USER_NAME);
+        r.setPassword("testPassword");
+        r.setConfirmPassword("testPassword");
+        final ResponseEntity<User> response = userController.createUser(r);
+        User user = response.getBody();
+        when(userRepo.findByUsername(USER_NAME)).thenReturn(user);
+
+        final ResponseEntity<User> userResponseEntity = userController.findByUserName(USER_NAME);
+
+        User u = userResponseEntity.getBody();
+        assertNotNull(u);
+        assertEquals(0, u.getId());
+        assertEquals(USER_NAME, u.getUsername());
+        assertEquals("thisIsHashed", u.getPassword());
     }
 }
