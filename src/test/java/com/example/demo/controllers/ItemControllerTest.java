@@ -48,7 +48,16 @@ public class ItemControllerTest {
     }
 
     @Test
-    public void getItemById() {
+    public void testGetItemById() {
+        Item item0 = getItem0();
+        when(itemRepository.findById(0L)).thenReturn(java.util.Optional.of(item0));
+
+        ResponseEntity<Item> response = itemController.getItemById(0L);
+
+        assertNotNull(response);
+        assertEquals(200, response.getStatusCodeValue());
+        Item retrievedItem = response.getBody();
+        assertEquals(item0, retrievedItem);
     }
 
     @Test

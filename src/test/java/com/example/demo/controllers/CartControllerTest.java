@@ -41,11 +41,7 @@ public class CartControllerTest {
         User user = new User();
         user.setUsername(USERNAME);
 
-        Item item = new Item();
-        item.setId(0L);
-        item.setName("Round Widget");
-        item.setPrice(new BigDecimal("2.99"));
-        item.setDescription("A widget that is round");
+        Item item = com.example.demo.controllers.TestUtils.getItem0();
 
         Cart cart = new Cart();
         cart.setId(0L);
@@ -86,11 +82,7 @@ public class CartControllerTest {
         User user = new User();
         user.setUsername(USERNAME);
 
-        Item item = new Item();
-        item.setId(0L);
-        item.setName("Round Widget");
-        item.setPrice(new BigDecimal("2.99"));
-        item.setDescription("A widget that is round");
+        Item item = com.example.demo.controllers.TestUtils.getItem0();
 
         Cart cart = new Cart();
         cart.setId(0L);
