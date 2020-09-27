@@ -5,10 +5,13 @@ import com.example.demo.model.persistence.Item;
 import java.math.BigDecimal;
 
 public class TestUtils {
+
+    public static final String ROUND_WIDGET = "Round Widget";
+
     static Item getItem0() {
         Item item = new Item();
         item.setId(0L);
-        item.setName("Round Widget");
+        item.setName(ROUND_WIDGET);
         item.setPrice(new BigDecimal("2.99"));
         item.setDescription("A widget that is round");
         return item;

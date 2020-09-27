@@ -10,8 +10,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.demo.controllers.TestUtils.getItem0;
-import static com.example.demo.controllers.TestUtils.getItem1;
+import static com.example.demo.controllers.TestUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
@@ -61,6 +60,19 @@ public class ItemControllerTest {
     }
 
     @Test
-    public void getItemsByName() {
+    public void testGetItemsByName() {
+        Item item0 = getItem0();
+        List<Item> items = new ArrayList<>(2);
+        items.add(item0);
+        when(itemRepository.findByName(ROUND_WIDGET)).thenReturn(items);
+
+        ResponseEntity<List<Item>> response = itemController.getItemsByName(ROUND_WIDGET);
+
+        assertNotNull(response);
+        assertEquals(200, response.getStatusCodeValue());
+        List<Item> retrievedItems = response.getBody();
+        assertNotNull(retrievedItems);
+        assertEquals(1, retrievedItems.size());
+        assertEquals(item0, retrievedItems.get(0));
     }
 }
