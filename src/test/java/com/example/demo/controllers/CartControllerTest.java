@@ -63,7 +63,9 @@ public class CartControllerTest {
         request.setItemId(0L);
         request.setQuantity(1);
         request.setUsername("test");
+
         ResponseEntity<Cart> response = cartController.addTocart(request);
+
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
         Cart retrievedCart = response.getBody();
@@ -81,5 +83,43 @@ public class CartControllerTest {
 
     @Test
     public void removeFromcart() {
+        User user = new User();
+        user.setUsername(USERNAME);
+
+        Item item = new Item();
+        item.setId(0L);
+        item.setName("Round Widget");
+        item.setPrice(new BigDecimal("2.99"));
+        item.setDescription("A widget that is round");
+
+        Cart cart = new Cart();
+        cart.setId(0L);
+        List<Item> itemList = new ArrayList<>();
+        itemList.add(item);
+        cart.setItems(itemList);
+        cart.setTotal(new BigDecimal("2.99"));
+        cart.setUser(user);
+        user.setCart(cart);
+
+        when(userRepo.findByUsername(USERNAME)).thenReturn(user);
+        when(itemRepository.findById(0L)).thenReturn(java.util.Optional.of(item));
+
+        ModifyCartRequest request = new ModifyCartRequest();
+        request.setItemId(0L);
+        request.setQuantity(1);
+        request.setUsername("test");
+
+        ResponseEntity<Cart> response = cartController.removeFromcart(request);
+
+        assertNotNull(response);
+        assertEquals(200, response.getStatusCodeValue());
+        Cart retrievedCart = response.getBody();
+        assertNotNull(retrievedCart);
+        assertEquals(0L, retrievedCart.getId());
+        List<Item> items = retrievedCart.getItems();
+        assertNotNull(items);
+        assertEquals(0, items.size());
+        assertEquals(new BigDecimal("0.00"), retrievedCart.getTotal());
+        assertEquals(user, retrievedCart.getUser());
     }
 }
