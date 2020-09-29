@@ -8,7 +8,7 @@ public class TestUtils {
 
     public static final String ROUND_WIDGET = "Round Widget";
 
-    static Item getItem0() {
+    public static Item getItem0() {
         Item item = new Item();
         item.setId(0L);
         item.setName(ROUND_WIDGET);
@@ -17,7 +17,7 @@ public class TestUtils {
         return item;
     }
 
-    static Item getItem1() {
+    public static Item getItem1() {
         Item item = new Item();
         item.setId(1L);
         item.setName("Square Widget");

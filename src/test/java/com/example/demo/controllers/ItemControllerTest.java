@@ -57,6 +57,10 @@ public class ItemControllerTest {
         assertEquals(200, response.getStatusCodeValue());
         Item retrievedItem = response.getBody();
         assertEquals(item0, retrievedItem);
+        assertNotNull(retrievedItem);
+        assertEquals(item0.getName(), retrievedItem.getName());
+        assertEquals(item0.getId(), retrievedItem.getId());
+        assertEquals(item0.getDescription(), retrievedItem.getDescription());
     }
 
     @Test
