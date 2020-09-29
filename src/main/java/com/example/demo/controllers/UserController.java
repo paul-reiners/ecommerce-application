@@ -43,6 +43,9 @@ public class UserController {
 	@GetMapping("/{username}")
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
+
+		logger.info("Found user with username, {}.", username);
+
 		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
 	}
 	
@@ -62,7 +65,7 @@ public class UserController {
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
 
-		logger.debug("Created user with username, {}.", username);
+		logger.info("Created user with username, {}.", username);
 
 		return ResponseEntity.ok(user);
 	}
