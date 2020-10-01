@@ -1,0 +1,36 @@
+[main] INFO com.example.demo.ECommerceApplication - Starting ECommerceApplication on EAG-PAUREI-W10A with PID 2428 (C:\Users\paul.reiners\Dropbox\education\JavaWebDevelopment\JDND\projects\P04-eCommerce Application\starter_code\target\classes started by paul.reiners in C:\Users\paul.reiners\Dropbox\education\JavaWebDevelopment\JDND\projects\P04-eCommerce Application\starter_code)
+[main] INFO com.example.demo.ECommerceApplication - No active profile set, falling back to default profiles: default
+[main] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[main] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 122ms. Found 4 JPA repository interfaces.
+[main] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+Oct 01, 2020 2:56:29 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Tomcat]
+Oct 01, 2020 2:56:29 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet engine: [Apache Tomcat/9.0.38]
+Oct 01, 2020 2:56:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring embedded WebApplicationContext
+[main] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4030 ms
+Oct 01, 2020 2:56:29 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: default]
+Oct 01, 2020 2:56:29 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.21.Final
+Oct 01, 2020 2:56:30 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[main] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[main] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+Oct 01, 2020 2:56:30 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Oct 01, 2020 2:56:32 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[main] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[main] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[main] INFO org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d226f27, org.springframework.security.web.context.SecurityContextPersistenceFilter@27bb4dc5, org.springframework.security.web.header.HeaderWriterFilter@7bc2ae16, org.springframework.web.filter.CorsFilter@1d944fc0, org.springframework.security.web.authentication.logout.LogoutFilter@2353354a, com.example.demo.security.JWTAuthenticationFilter@7c3c453b, com.example.demo.security.JWTAuthenticationVerificationFilter@1b791dca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64910b2d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b7308aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15ac02d5, org.springframework.security.web.session.SessionManagementFilter@7d3bf8db, org.springframework.security.web.access.ExceptionTranslationFilter@bfb93cf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@26ffd2c0]
+[main] INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[main] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[main] INFO com.example.demo.ECommerceApplication - Started ECommerceApplication in 9.65 seconds (JVM running for 10.6)
+Oct 01, 2020 2:56:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring DispatcherServlet 'dispatcherServlet'
+[http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+[http-nio-8080-exec-1] ERROR com.example.demo.controllers.UserController - Did not find user with username, paul.
+[http-nio-8080-exec-3] INFO com.example.demo.controllers.UserController - Created user with username, paul.
