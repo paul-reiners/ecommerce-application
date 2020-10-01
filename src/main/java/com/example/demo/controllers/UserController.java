@@ -44,7 +44,11 @@ public class UserController {
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
 
-		logger.info("Found user with username, {}.", username);
+		if (user == null) {
+			logger.error("Did not find user with username, {}.", username);
+		} else {
+			logger.info("Found user with username, {}.", username);
+		}
 
 		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
 	}

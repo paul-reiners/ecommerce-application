@@ -21,7 +21,7 @@ public class UserDetailsServiceImplementorTest {
     @Before
     public void setUp() {
         userDetailsServiceImplementor = new UserDetailsServiceImplementor(userRepo);
-        com.example.demo.TestUtils.injectObjects(userDetailsServiceImplementor, "userRepository", userRepo);
+        com.example.demo.TestUtils.injectObjects(userDetailsServiceImplementor, "applicationUserRepository", userRepo);
     }
 
     @Test

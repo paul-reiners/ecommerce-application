@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Paul\",\r\n    \"password\": \"abcdefg\",\r\n    \"confirmPassword\": \"abcdefg\"\r\n}",
+					"raw": "{\r\n    \"username\": \"paul\",\r\n    \"password\": \"mypassword\",\r\n    \"confirmPassword\": \"mypassword\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,10 +44,20 @@
 		{
 			"name": "getUser",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsIiwiZXhwIjoxNjAyMzcyOTQ5fQ.-KY0QEoTs2aQTZyrAjlaAI19JgzLFP4YQoHE0uE_eKmeyAMKYbN63NQIJuk1NPCt25R2Gr18dcOBR1ViyXoBEQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/user/Paul",
+					"raw": "http://localhost:8080/api/user/paul",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -56,7 +66,7 @@
 					"path": [
 						"api",
 						"user",
-						"Paul"
+						"paul"
 					]
 				}
 			},
@@ -139,6 +149,21 @@
 		{
 			"name": "listItems",
 			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsIiwiZXhwIjoxNjAyMDA3NDU0fQ.4YLuI4rgQyWOdYCYZKHnSoqOkVoEamCNbtlcQgnuS5zj5xneVBiaKYld2hEvFR1B3ONFHVQnRyABMwkxiks_1A",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
