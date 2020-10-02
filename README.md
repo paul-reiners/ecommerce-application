@@ -82,3 +82,9 @@ Some Splunk screen-shots:
 !["Create user" search](./img/CreateUserSearch.jpg)
 ![Email alert](./img/emailAlert.jpg)
 ![Visualization](img/my-visualization.jpg)
+
+## Jenkins
+
+A Jenkins screen-shot:
+
+![Jenkins project](img/jenkins.png)
